@@ -1,0 +1,18 @@
+{
+  "config": null,
+  "data": {
+    "form": {
+      "voucher_used": 0,
+      "refund": 1,
+      "vouchers": [
+        "-"
+      ],
+      "lp_amount_idr": "Rp 0",
+      "lp_amount": 0,
+      "total_refund": "Rp 49.000"
+    }
+  },
+  "server_process_time": 1.707524,
+  "status": "OK",
+  "error_message": []
+}
