@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"reflect"
 	"strings"
 )
 
@@ -42,4 +43,28 @@ func readLines(path string) ([]string, error) {
 		lines = append(lines, scanner.Text())
 	}
 	return lines, scanner.Err()
+}
+
+//for testing purpose
+func test() {
+	b := []byte(`{"Name":"Wednesday","Age":6,"Parents":[{"Name":"Gomez", "Age":24},{"Name":"Morticia", "Age":33}]}`)
+	var f interface{}
+	json.Unmarshal(b, &f)
+	m := f.(map[string]interface{})
+	for key, val := range m {
+		fmt.Println("key", key)
+		fmt.Println("val", val)
+		if reflect.TypeOf(val).Kind() == reflect.Slice {
+			arr := val.([]interface{})
+			for _, aaa := range arr {
+				if reflect.TypeOf(aaa).Kind() == reflect.Map {
+					mp := aaa.(map[string]interface{})
+					for _, bbb := range mp {
+						fmt.Println("val3", bbb)
+					}
+				}
+				fmt.Println("vall", aaa)
+			}
+		}
+	}
 }
