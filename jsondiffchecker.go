@@ -2,9 +2,11 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"os"
 	"reflect"
+	"strconv"
 	"strings"
 )
 
@@ -13,58 +15,69 @@ func main() {
 	fmt.Print("path : ")
 	badPath, err := reader.ReadString('\n')
 	goodPath := strings.Split(badPath, "\n")
-
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	text, err := readLines(goodPath[0])
+	js, err := readLines(goodPath[0])
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	fmt.Println("Hello, playground\n", strings.Join(text, "\n"))
+	unmarshal(js)
 }
 
 // readLines reads a whole file into memory
 // and returns a slice of its lines.
-func readLines(path string) ([]string, error) {
+func readLines(path string) (string, error) {
 	file, err := os.Open(path)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 	defer file.Close()
 
-	var lines []string
+	lines := ""
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
+		lines += " " + scanner.Text()
 	}
 	return lines, scanner.Err()
 }
 
-//for testing purpose
-func test() {
-	b := []byte(`{"Name":"Wednesday","Age":6,"Parents":[{"Name":"Gomez", "Age":24},{"Name":"Morticia", "Age":33}]}`)
+//unmarshal the json
+func unmarshal(path string) {
+	fmt.Println()
+
+	b := []byte(path)
 	var f interface{}
 	json.Unmarshal(b, &f)
+
 	m := f.(map[string]interface{})
 	for key, val := range m {
-		fmt.Println("key", key)
-		fmt.Println("val", val)
-		if reflect.TypeOf(val).Kind() == reflect.Slice {
-			arr := val.([]interface{})
-			for _, aaa := range arr {
-				if reflect.TypeOf(aaa).Kind() == reflect.Map {
-					mp := aaa.(map[string]interface{})
-					for _, bbb := range mp {
-						fmt.Println("val3", bbb)
-					}
-				}
-				fmt.Println("vall", aaa)
-			}
+		decode(key, val)
+	}
+}
+
+//decode and print unmarshaled json
+func decode(key string, val interface{}) {
+	kind := reflect.ValueOf(val).Kind()
+
+	if kind == reflect.Map {
+		m := val.(map[string]interface{})
+
+		for k, v := range m {
+			decode(key+" -> "+k, v)
 		}
+	} else if kind == reflect.Slice {
+		s := val.([]interface{})
+
+		for k, v := range s {
+			decode(key+" -> "+strconv.Itoa(k), v)
+		}
+
+	} else {
+		fmt.Println(key, ":", val)
 	}
 }

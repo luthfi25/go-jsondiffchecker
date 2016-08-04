@@ -1,0 +1,129 @@
+{
+  "status": "OK",
+  "config": null,
+  "data": {
+    "form": {
+      "payment": {
+        "order_left_amount_idr": "Rp 9.137",
+        "order_deposit_used_idr": "Rp 0",
+        "order_invoice": 0,
+        "order_payment_year": "2016",
+        "order_confirmation_code_idr": "Rp 37",
+        "order_grand_total_idr": "Rp 9.100",
+        "order_payment_month": "1",
+        "order_payment_amount": 9137,
+        "order_left_amount": 0,
+        "order_payment_day": "7",
+        "order_confirmation_code": 37,
+        "order_payment_id": 23645,
+        "order_deposit_used": 0,
+        "order_depositable": 1,
+        "order_grand_total": "9100"
+      },
+      "bank_account": {
+        "bank_account_list": [
+          {
+            "bank_id": 71,
+            "bank_account_id": 1948,
+            "bank_account_name": "sadasdaaaa aaa",
+            "bank_name": "PT. BANK CENTRAL ASIA TBK.",
+            "bank_account_number": "527112834928"
+          },
+          {
+            "bank_id": 71,
+            "bank_account_id": 2023,
+            "bank_account_name": "andika",
+            "bank_name": "PT. BANK CENTRAL ASIA TBK.",
+            "bank_account_number": "52711654987"
+          }
+        ],
+        "bank_account_id_chosen": 1948
+      },
+      "order": {
+        "order_invoice_string": "INV/20160107/XVI/I/19510",
+        "order_invoice": [
+          "INV/20160107/XVI/I/19510"
+        ]
+      },
+      "customer": {
+        "customer_id": 2191
+      },
+      "sysbank_account": {
+        "sysbank_list": [
+          {
+            "sysbank_account_number": "",
+            "sysbank_account_name": "",
+            "sysbank_name": "BCA",
+            "sysbank_note": "",
+            "sysbank_id": "1"
+          },
+          {
+            "sysbank_account_number": "",
+            "sysbank_account_name": "",
+            "sysbank_name": "MANDIRI",
+            "sysbank_note": "",
+            "sysbank_id": "2"
+          },
+          {
+            "sysbank_account_number": "",
+            "sysbank_account_name": "",
+            "sysbank_name": "BNI",
+            "sysbank_note": "",
+            "sysbank_id": "3"
+          },
+          {
+            "sysbank_account_number": "",
+            "sysbank_account_name": "",
+            "sysbank_name": "BRI",
+            "sysbank_note": "",
+            "sysbank_id": "4"
+          },
+          {
+            "sysbank_account_number": "",
+            "sysbank_account_name": "",
+            "sysbank_name": "CIMB",
+            "sysbank_note": "",
+            "sysbank_id": "5"
+          }
+        ],
+        "sysbank_id_chosen": 1
+      },
+      "method": {
+        "method_id_chosen": 2,
+        "method_list": [
+          {
+            "method_id": 0,
+            "method_name": "Pilih Metode Pembayaran"
+          },
+          {
+            "method_id": 2,
+            "method_name": "Transfer ATM"
+          },
+          {
+            "method_id": 3,
+            "method_name": "Internet Banking"
+          },
+          {
+            "method_id": 4,
+            "method_name": "Mobile Banking"
+          },
+          {
+            "method_id": 5,
+            "method_name": "Saldo Tokopedia"
+          },
+          {
+            "method_id": 6,
+            "method_name": "Setoran / Transfer Tunai"
+          }
+        ]
+      },
+      "datetime": {
+        "date_day": 0,
+        "date_year_min": 2016,
+        "date_month": 0,
+        "date_year_max": 2016
+      }
+    }
+  },
+  "server_process_time": "0.096386"
+}
